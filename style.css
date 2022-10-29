@@ -1,0 +1,87 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Tahoma;
+}
+
+:root {
+  --gap: 10px;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  background: rgb(196,240,252);
+  background: linear-gradient(230deg, rgba(196,240,252,1) 0%, rgba(106,232,197,1) 53%, rgb(93, 228, 255) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  display: inline-block;
+  padding: 40px;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+}
+
+.display {
+  border: 1px solid black;
+  text-align: right;
+  padding: 20px 30px;
+  font-size: 34px;
+  margin-bottom: 40px;
+  border-radius: 100px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.row {
+  display: flex;
+  gap: var(--gap);
+}
+.single-button {
+  flex: 1;
+}
+
+.double-button {
+  flex: 2.25;
+}
+
+.triple-button{
+  flex: 3.5;
+}
+
+button {
+  border-radius: 100px;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  background-color: rgb(255, 210, 125);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: rgb(250, 199, 103);
+}
+
+button:active {
+  background-color: rgb(252, 219, 159);
+
+}
+
+.single-button {
+  width: 60px;
+  height: 60px;
+}
