@@ -9,6 +9,7 @@
 
 :root {
   --gap: 10px;
+  --background: #4767a9;
 }
 
 html {
@@ -16,8 +17,7 @@ html {
 }
 
 body {
-  background: rgb(196,240,252);
-  background: linear-gradient(230deg, rgba(196,240,252,1) 0%, rgba(106,232,197,1) 53%, rgb(93, 228, 255) 100%);
+  background: var(--background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,11 +28,14 @@ body {
   display: inline-block;
   padding: 40px;
   border-radius: 30px;
-  background-color: rgb(255, 255, 255);
+  background: #091b3e;
+box-shadow:  6px -6px 12px #040b19,
+             -6px 6px 12px #0e2b63;
 }
 
 .display {
-  border: 1px solid black;
+  background: #bccef0;
+  box-shadow: inset 7px -7px 14px #8794ad, inset -7px 7px 14px #f1ffff;
   text-align: right;
   padding: 20px 30px;
   font-size: 34px;
@@ -67,18 +70,19 @@ button {
   cursor: pointer;
   outline: 0;
   border: 0;
-  background-color: rgb(255, 210, 125);
   font-size: 20px;
   font-weight: 600;
-}
-
-button:hover {
-  background-color: rgb(250, 199, 103);
+  background: #0d224d;
+box-shadow:  -7px 7px 8px #081734,
+             7px -7px 8px #0a1f48;
+  transition: box-shadow 0.15s;
+  color: rgb(119, 151, 211);
 }
 
 button:active {
-  background-color: rgb(252, 219, 159);
-
+  background: #091b3e;
+  box-shadow:  5px -5px 6px #081734,
+              -5px 5px 6px #0a1f48;
 }
 
 .single-button {
