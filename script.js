@@ -1,55 +1,72 @@
-const display = document.getElementById('display')
+const displayElement = document.querySelectorAll("#display")[0]
 
-let first_number = 0
-let second_number = undefined;
-let operator = undefined;
-let displayingInput = true;
-let result = undefined;
+let number_1 = 0
+let number_2 = 0
+let operator = "+"
 
 function buttonClick(key) {
-  if(isNaN(key)) {
-    simbolAction(key)
-  } else {
-    nubmerAction(key)
-  }
-}
-
-function nubmerAction(key) {
-  if (first_number != 0) {
-    first_number = first_number * 10 + Number(key)
-  } else {
-    first_number = key
-  }
-  renderDisplay(first_number)
-}
-
-function simbolAction(key) {
   switch(key) {
-    case "c":
-      first_number = 0;
-      second_number = undefined;
-      operator = undefined;
-      break;
-    case "<":
-      // Programas Comando de apagar um número ao digitar
-      break;
-    case "+":
-      operator = "+";
-      break;
-    case "-":
-      operator = "+";
-      break;
-    case "*":
-      operator = "+";
-      break;
-    case "/":
-      operator = "+";
-      break;
-    case "=":
-      operator = undefined;
-  }
-} 
+    // Number
+    case Number(key):
+      pushNumber(key)
+      break
 
-function renderDisplay(number) {
-  display.innerHTML = number
+    // Backspace
+    case "<":
+      backspace()
+      break
+    
+    // Operator
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+      setOperator(key)
+      break
+    
+    // Reset
+    case "c":
+      reset()
+      break
+    
+    // result
+    case "=":
+      calcResult()
+      break
+  }
+}
+
+function reset() {
+  number_1 = 0
+  number_2 = 0
+  operator = "+"
+  display(number_2)
+}
+
+function calcResult() {
+  display("result")
+}
+
+function setOperator(symbol) {
+  operator = symbol
+}
+
+function pushNumber(number) {
+  if (!(number_2 > 9999999)) {
+    if(number_2 === 0) {
+      number_2 = number
+    } else {
+      number_2 = number_2 * 10 + number
+    }
+  }
+  display(number_2)
+}
+
+function backspace() {
+  number_2 = Math.trunc(number_2/10)
+  display(number_2)
+}
+
+function display(data) {
+  displayElement.innerHTML = data
 }
